@@ -1,0 +1,14 @@
+name: clubhouse workflow e2e test
+on:
+  release:
+    types: ['released']
+
+jobs:
+  test-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/clubhouse-workflow@v0.1
+      with:
+        clubhouseToken: ${secrets.CLUBHOUSE_TOKEN}
+        endStateName: Completed
+        addReleaseInfo: true

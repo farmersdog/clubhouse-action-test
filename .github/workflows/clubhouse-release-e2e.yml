@@ -7,14 +7,8 @@ jobs:
   test-release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        repository: farmersdog/clubhouse-workflow-action
-        ref: master
-        path: action
-    - run: ls -la ./action
-    - uses: ./action
-      with:
-        clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-        endStateName: Completed
-        addReleaseInfo: true
+      - uses: farmersdog/clubhouse-workflow-action@master
+        with:
+          clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
+          endStateName: Completed
+          addReleaseInfo: true

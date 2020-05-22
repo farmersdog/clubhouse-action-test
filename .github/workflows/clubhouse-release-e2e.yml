@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: farmersdog/clubhouse-workflow-action
-        ref: master
+        ref: debug-action-toolkit
         path: action
     - run: ls -la ./action
     - uses: ./action

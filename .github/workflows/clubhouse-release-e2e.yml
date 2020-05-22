@@ -12,7 +12,8 @@ jobs:
         repository: farmersdog/clubhouse-workflow-action
         ref: v0.1.0
         path: action
-    - uses: action
+    - run: ls -la ./action
+    - uses: ./action
       with:
         clubhouseToken: ${secrets.CLUBHOUSE_TOKEN}
         endStateName: Completed

@@ -15,6 +15,6 @@ jobs:
     - run: ls -la ./action
     - uses: ./action
       with:
-        clubhouseToken: ${secrets.CLUBHOUSE_TOKEN}
+        clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
         endStateName: Completed
         addReleaseInfo: true

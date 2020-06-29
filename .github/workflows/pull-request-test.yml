@@ -1,14 +1,14 @@
 name: Move Stories to Testing
 on:
   pull_request:
-    types: ['labeled']
+    types: ['review_requested']
 
 jobs:
   update-clubhouse:
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'Test'
+    if: contains(github.event.pull_request.requested_teams.*.name, 'platform')
     steps:
-      - uses: farmersdog/clubhouse-workflow-action@add-pull-request
+      - uses: farmersdog/clubhouse-workflow-action@master
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           endStateName: Ready for QA

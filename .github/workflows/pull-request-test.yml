@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: true
     steps:
-      - uses: farmersdog/clubhouse-workflow-action@package-update
+      - uses: farmersdog/clubhouse-workflow-action@master
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           endStateName: Ready for QA

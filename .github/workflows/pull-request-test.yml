@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.requested_teams.*.name, 'platform')
     steps:
-      - uses: farmersdog/clubhouse-workflow-action@master
+      - uses: farmersdog/clubhouse-workflow-action@package-update
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           endStateName: Ready for QA

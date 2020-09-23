@@ -11,11 +11,11 @@ jobs:
         uses: farmersdog/clubhouse-workflow-action@master
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-          endStateName: Completed
+          endStateName: 'Deployed on Prod'
           addReleaseInfo: true
       - name: Test latest v1 release
         uses: farmersdog/clubhouse-workflow-action@v1
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-          endStateName: Completed
+          endStateName: 'Deployed on Prod'
           addReleaseInfo: true

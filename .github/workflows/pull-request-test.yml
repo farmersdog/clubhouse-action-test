@@ -7,7 +7,7 @@ jobs:
   update-clubhouse:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.pull_request }}
+      - run: echo ${{ toJson(github.event.pull_request) }}
       - uses: farmersdog/clubhouse-workflow-action@master
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}

@@ -9,6 +9,7 @@ jobs:
     steps:
       - run: echo ${{ toJson(github.event.pull_request) }}
       - uses: farmersdog/clubhouse-workflow-action@master
+        if: contains(secrets.QA_USERNAMES, github.event.pull_request.requested_reviewers[0].login)
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           endStateName: Ready for QA

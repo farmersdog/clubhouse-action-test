@@ -3,12 +3,24 @@ on:
   pull_request:
     types: ['review_requested']
 
+env:
+  QA_USERNAMES: ${{ secrets.QA_USERNAMES }}
+
 jobs:
-  update-clubhouse:
+  update-clubhouse-on-review-request:
     runs-on: ubuntu-latest
-    if: true
     steps:
       - uses: farmersdog/clubhouse-workflow-action@master
+        if: contains(env.QA_USERNAMES, github.event.pull_request.requested_reviewers[0].login)
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-          endStateName: Ready for QA
+          endStateName: In Testing
+
+  update-clubhouse-on-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: farmersdog/clubhouse-workflow-action@master
+        if: contains(env.QA_USERNAMES, github.event.pull_request.requested_reviewers[0].login)
+        with:
+          clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
+          endStateName: In Testing

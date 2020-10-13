@@ -1,0 +1,17 @@
+name: PR Title Updater
+
+on:
+  pull_request:
+    types: [ opened ]
+
+jobs:
+  update-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test master
+        uses: farmersdog/clubhouse-pr@master
+        with:
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          chToken: ${{ secrets.CLUBHOUSE_TOKEN }}

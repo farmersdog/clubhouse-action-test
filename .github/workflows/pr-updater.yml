@@ -2,8 +2,8 @@ name: PR Title Updater
 
 on:
   pull_request:
-    ## Adding 'synchronized' here for testing purposes
-    types: [ opened, synchronized ]
+    ## Adding 'edited' here for testing purposes
+    types: [ opened, edited ]
 
 jobs:
   update-pr-title:

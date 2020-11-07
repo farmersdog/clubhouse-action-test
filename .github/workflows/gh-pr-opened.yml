@@ -1,4 +1,4 @@
-name: Update PR Title & Body with Clubhouse Info
+name: Clubhouse PR E2E Test
 
 on:
   pull_request:

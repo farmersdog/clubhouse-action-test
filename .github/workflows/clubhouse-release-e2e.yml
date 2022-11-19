@@ -7,15 +7,15 @@ jobs:
   test-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Test master
-        uses: farmersdog/clubhouse-workflow-action@master
-        with:
-          clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-          endStateName: 'Deployed on Production'
-          addReleaseInfo: true
       - name: Test latest v1 release
         uses: farmersdog/clubhouse-workflow-action@v1
         with:
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
-          endStateName: 'Deployed on Production'
+          endStateName: 'Completed'
+          addReleaseInfo: true
+      - name: Test master
+        uses: farmersdog/clubhouse-workflow-action@master
+        with:
+          clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
+          endStateName: 'Completed'
           addReleaseInfo: true
